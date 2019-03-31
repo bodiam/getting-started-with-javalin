@@ -28,8 +28,12 @@ dependencies {
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compile("org.jetbrains.kotlin:kotlin-reflect")
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")}
+    compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8")
+
+    testImplementation("org.junit.jupiter:junit-jupiter:5.4.0")
+//    testImplementation("org.junit.jupiter:junit-jupiter-api")
+//    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+}
 
 repositories {
     jcenter()
