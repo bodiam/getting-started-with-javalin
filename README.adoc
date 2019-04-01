@@ -1,0 +1,10 @@
+= Integration testing with Javalin
+
+This repository is part of the blogpost published https://www.jworks.io/integration-testing-with-javalin/[here], and demonstrates how to get
+started with testing Javalin with Kotlin, Gradle and Fuel HTTP.
+
+== Technologies used
+
+* Javalin 2.8.0
+* Kotlin 1.3.21
+* Fuel HTTP 2.0.1

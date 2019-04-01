@@ -43,6 +43,6 @@ class PersonIntegrationTest  {
         // Deconstructs the ResponseResult to get the FuelError
         val (_, error) = result
 
-        assertEquals(error!!.response.statusCode, 404)
+        assertEquals(error?.response?.statusCode, 404)
     }
 }
