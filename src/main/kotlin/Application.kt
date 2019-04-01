@@ -1,6 +1,9 @@
+// Application.kt
 import io.javalin.Javalin
 import io.javalin.apibuilder.ApiBuilder.get
 import io.javalin.apibuilder.ApiBuilder.path
+import person.PersonController
+import person.personRepository
 
 fun main() {
     JavalinApp(7000).init()
@@ -15,16 +18,13 @@ class JavalinApp(private val port: Int) {
             exception(Exception::class.java) { e, _ -> e.printStackTrace() }
         }.start()
 
-        val controller = FoodItemController(foodItems)
+        val personController = PersonController(personRepository)
 
         app.routes {
-            app.get("/") { ctx -> ctx.result("Hello World") }
-            app.get("/bye") { ctx -> ctx.result("Bye World") }
-
             path("api") {
-                path("food") {
+                path("person") {
                     path(":id") {
-                        get { ctx -> controller.getFoodItem(ctx) }
+                        get { ctx -> personController.getPerson(ctx) }
                     }
                 }
             }
