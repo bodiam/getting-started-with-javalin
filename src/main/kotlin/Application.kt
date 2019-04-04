@@ -1,7 +1,5 @@
 // Application.kt
 import io.javalin.Javalin
-import io.javalin.apibuilder.ApiBuilder.get
-import io.javalin.apibuilder.ApiBuilder.path
 import person.PersonController
 import person.personRepository
 
@@ -20,15 +18,7 @@ class JavalinApp(private val port: Int) {
 
         val personController = PersonController(personRepository)
 
-        app.routes {
-            path("api") {
-                path("person") {
-                    path(":id") {
-                        get { ctx -> personController.getPerson(ctx) }
-                    }
-                }
-            }
-        }
+        app.get("/api/person/:id", personController::getPerson)
 
         return app
     }
